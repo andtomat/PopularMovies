@@ -1,6 +1,6 @@
 # Popular Movies
 
-Some of little cake of From Fast Track Udacity.
+Some of little cake of from Fast Track Udacity.
 
 Feature :
 * Discover Popular and Top Rated movies.
@@ -37,7 +37,7 @@ This cake uses [The Movie Database](https://www.themoviedb.org/documentation/api
 
 ## License
 
-    Copyright 2015 Yoshua Andrean
+    Copyright 2017 Yoshua Andrean
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
