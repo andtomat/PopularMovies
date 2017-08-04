@@ -47,6 +47,7 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
     compile "com.google.guava:guava:$rootProject.guavaVersion"
     compile "com.github.jd-alexander:LikeButton:$rootProject.likeButtonVersion"
+    compile "com.facebook.stetho:stetho-okhttp3:$rootProject.stethoVersion"
 
     // Butterknife dependencies
     compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"

@@ -41,4 +41,5 @@ ext {
     daggerVersion = '2.10'
     guavaVersion = '18.0'
     likeButtonVersion = '0.2.1'
+    stethoVersion = '1.5.0'
 }

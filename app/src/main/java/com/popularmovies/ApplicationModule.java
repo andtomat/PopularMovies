@@ -3,6 +3,8 @@ package com.popularmovies;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.popularmovies.data.source.LoaderProvider;
@@ -14,6 +16,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -48,11 +51,12 @@ public final class ApplicationModule {
     }
 
     @Provides
-    Retrofit provideRetrofit(Gson gson){
+    Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient){
         return new Retrofit.Builder()
                 .baseUrl("https://api.themoviedb.org/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .client(okHttpClient)
                 .build();
     }
 
@@ -67,5 +71,12 @@ public final class ApplicationModule {
     @Singleton
     MovieService provideMovieService(Retrofit retrofit){
         return retrofit.create(MovieService.class);
+    }
+
+    @Provides
+    OkHttpClient provideOkHttpClient(){
+        return new OkHttpClient.Builder()
+                .addNetworkInterceptor(new StethoInterceptor())
+                .build();
     }
 }
