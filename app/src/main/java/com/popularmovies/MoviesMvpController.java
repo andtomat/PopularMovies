@@ -54,9 +54,6 @@ public class MoviesMvpController {
         mTvToolbar = tvToolbar;
     }
 
-    @Inject
-    MoviesTabletPresenter mMoviesTabletPresenter;
-
     public static MoviesMvpController createMoviesView(
             @NonNull MoviesActivity moviesActivity,
             @Nullable Movie movie,

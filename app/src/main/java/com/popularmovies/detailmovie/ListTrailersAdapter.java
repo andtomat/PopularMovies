@@ -36,7 +36,9 @@ public class ListTrailersAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ButterKnife.bind(this, v);
 
             v.setOnClickListener(view -> {
-                PopularMoviesApplication.getMovieRepositoryComponent().getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + currentVideo.key)));
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + currentVideo.key));
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                PopularMoviesApplication.getMovieRepositoryComponent().getContext().startActivity(i);
             });
         }
     }

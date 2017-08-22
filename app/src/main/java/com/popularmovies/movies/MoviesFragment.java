@@ -312,18 +312,11 @@ public class MoviesFragment extends Fragment implements MoviesContract.View {
     @Override
     public void onResume() {
         super.onResume();
-        if (mBundleRecyclerViewState != null) {
-            Parcelable listState = mBundleRecyclerViewState.getParcelable("state");
-            mRecyclerView.getLayoutManager().onRestoreInstanceState(listState);
-        }
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mBundleRecyclerViewState = new Bundle();
-        Parcelable listState = mRecyclerView.getLayoutManager().onSaveInstanceState();
-        mBundleRecyclerViewState.putParcelable("state", listState);
     }
 
     MovieItemListener mItemListener = new MovieItemListener() {
